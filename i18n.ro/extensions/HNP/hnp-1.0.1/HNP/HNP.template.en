@@ -1,0 +1,135 @@
+== Group Hierarchy Definition ==
+Hierarchy: {{#hnp_h: sysop, user, * }}
+
+== Namespace Independant Rights ==
+{| border = 1
+! Right !! Type !! Notes
+|-
+{{#hnp_r:createaccount   | I }}
+{{#hnp_r:ipblock-exempt  | I }}
+{{#hnp_r:hideuser        | I }}
+{{#hnp_r:userrights      | I }}
+{{#hnp_r:siteadmin       | I }}
+{{#hnp_r:import          | I }}
+{{#hnp_r:importupload    | I }}
+{{#hnp_r:deletedhistory  | I }}
+{{#hnp_r:deleterevision  | I }}
+{{#hnp_r:hiderevision    | I }}
+{{#hnp_r:block           | I }}
+{{#hnp_r:oversight       | I }}
+{{#hnp_r:bot             | I }}
+{{#hnp_r:proxyunbannable | I }}
+{{#hnp_r:trackback       | I }}
+{{#hnp_r:unwatchedpages  | I }}
+{{#hnp_r:skipcaptcha     | I | ReCAPTCHA specific}} 
+{{#hnp_r:makesysop       | I | MakeSysop extension specific }} 
+{{#hnp_r:desysop         | I | DeSysop extension specific}}
+{{#hnp_r:readlog         | I | BizzWiki Specific}}
+{{#hnp_r:coding          | I | SecurePHP extension specific}}
+|}
+
+== Namespace Dependant Rights ==
+{| border = 1
+! Right !! Type !! Notes
+|-
+{{#hnp_r: strans          | D }}  <!-- Specific to [[Extension:SecureTransclusion]] -->
+{{#hnp_r: watch           | D }}  <!-- Specific to [[Extension:WatchRight]] -->
+{{#hnp_r: unwatch         | D }}  <!-- Specific to [[Extension:WatchRight]] -->
+{{#hnp_r: viewsource      | D }}  <!-- Specific to [[Extension:ViewsourceRight]] -->
+{{#hnp_r: raw             | D }}  <!-- Specific to [[Extension:RawRight]] -->
+{{#hnp_r: read            | D }}
+{{#hnp_r: edit            | D }}
+{{#hnp_r: browse          | D }}  <!-- BizzWiki specific -->
+{{#hnp_r: search          | D }}  <!-- BizzWiki specific -->
+{{#hnp_r: minoredit       | D }}
+{{#hnp_r: create          | D }}
+{{#hnp_r: delete          | D }}
+{{#hnp_r: move            | D }}
+{{#hnp_r: nominornewtalk  | D }}
+{{#hnp_r: createpage      | D }}
+{{#hnp_r: createtalk      | D }}
+{{#hnp_r: rollback        | D }}
+{{#hnp_r: protect         | D }}
+{{#hnp_r: patrol          | D }}
+{{#hnp_r: patrolmarks     | D }} <!-- introduced in MW1.11 -->
+{{#hnp_r: autopatrol      | D }}
+{{#hnp_r: purge           | D }}
+{{#hnp_r: upload          | D }}
+{{#hnp_r: reupload        | D }}
+{{#hnp_r: reupload-own    | D }}  <!-- MW 1.11 -->
+{{#hnp_r: reupload-shared | D }}
+{{#hnp_r: upload_by_url   | D }}
+|}
+
+== Group Rights ==
+{| border = 1
+! Group !! Namespace !! Title !! Right !! Notes
+|-
+{{#hnp: sysop      | ~ | ~ | ~    }}
+{{#hnp: sysop      | ~ | ~ | !bot }}
+
+{{#hnp: steward    | ~ | ~ | makesysop }}
+{{#hnp: steward    | ~ | ~ | userrights }}
+
+{{#hnp: bureaucrat | ~ | ~ | makesysop }}
+{{#hnp: bureaucrat | ~ | ~ | desysop }}
+
+{{#hnp: * | ~             | ~ | createaccount                 }}
+{{#hnp: * | Main          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Talk          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Special       | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Project       | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Project_talk  | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Category      | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Category_talk | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Help          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Help_talk     | ~ | read, browse, raw, viewsource }}
+
+{{#hnp: * | MediaWiki     | Common.css   | read }} 
+{{#hnp: * | MediaWiki     | Common.css   | raw  }} 
+{{#hnp: * | MediaWiki     | Monobook.css | read }} 
+{{#hnp: * | MediaWiki     | Monobook.css | raw  }} 
+
+{{#hnp: * | Filesystem    | LocalSettings.php | !read, !raw, !viewsource }} 
+{{#hnp: * | Filesystem    | AdminSettings.php | !read, !raw, !viewsource }} 
+
+<!-- BizzWiki related {{ -->
+{{#hnp: * | Main          | ~ | browse,seach  }} 
+{{#hnp: * | Talk          | ~ | browse,seach  }} 
+{{#hnp: * | Special       | ~ | browse,seach  }} 
+{{#hnp: * | Project       | ~ | browse,seach  }} 
+{{#hnp: * | Project_talk  | ~ | browse,seach  }} 
+{{#hnp: * | Category      | ~ | browse,seach  }} 
+{{#hnp: * | Category_talk | ~ | browse,seach  }} 
+{{#hnp: * | Help          | ~ | browse,seach  }} 
+{{#hnp: * | Help_talk     | ~ | browse,seach  }} 
+
+{{#hnp: * | Special | Log/newusers  | !browse }} 
+{{#hnp: * | Special | Log/commitfil | !browse }} 
+{{#hnp: * | Special | Log/upload    | !browse }} 
+{{#hnp: * | Special | Log/delete    | !browse }} 
+{{#hnp: * | Special | Log/rights    | !browse }} 
+{{#hnp: * | Special | Log/emaillog  | !browse }} 
+{{#hnp: * | Special | Log/usetchglog| !browse }} 
+{{#hnp: * | Special | Log/watchlog  | !browse }} 
+{{#hnp: * | Special | Log/usrloglog | !browse }} 
+
+<!-- }} -->
+
+<!-- user related -->
+<!-- users get more rights -->
+{{#hnp: user | Talk          | ~ | edit, create, createpage }} 
+{{#hnp: user | Project_talk  | ~ | edit, create, createpage }} 
+{{#hnp: user | Category_talk | ~ | edit, create, createpage }} 
+{{#hnp: user | Help_talk     | ~ | edit, create, createpage }} 
+{{#hnp: user | Image_talk    | ~ | edit, create, createpage }} 
+{{#hnp: user | User_talk     | ~ | edit, create, createpage }} 
+
+{{#hnp: user | Template      | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | Template_talk | ~ | read, browse, search, watch, unwatch }}
+{{#hnp: user | Image         | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | Image_talk    | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | User          | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | User_talk     | ~ | read, browse, search, watch, unwatch }} 
+
+|}

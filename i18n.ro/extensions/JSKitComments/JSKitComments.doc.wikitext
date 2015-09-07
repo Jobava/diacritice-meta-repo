@@ -1,0 +1,59 @@
+{{Extension
+|name        = JSKitComments
+|status      = beta
+|author      = [[user:jldupont|Jean-Lou Dupont]]
+|image       =
+|version     = 1.0.0
+|update      =
+|mediawiki   = 1.11 (should work on other versions)
+|download    = [http://mediawiki.googlecode.com/svn/trunk/extensions/JSKitComments/ SVN]
+|readme      =
+|changelog   = See SVN ($Id: JSKitComments.doc.wikitext 930 2008-01-16 00:16:03Z jeanlou.dupont $)
+|description = 
+|parameters  =
+|rights      =
+|example     =
+}}
+== Purpose ==
+Provides integration with [http://js-kit.com/comments/ JS-Kit Comments], an AJAX based social tool.
+
+== Usage ==
+Just use the following parser function <nowiki>{{#jskitcomments: [optional parameters] }}</nowiki> on the desired wiki page.
+
+Use the ''noscript'' parameter to control when the JS script should be included. Useful when putting together ''aggregate'' pages with the ''path'' parameter.
+== Parameters ==
+For a complete description, please see [http://js-kit.com/comments/custom.html JS-Kit Ratings Customization].
+{|border=1 class='sortable'
+! Parameter !! Description
+|-
+| noscript || Set to ''true'' or ''1'' if the JS script should be omitted
+|-
+| label     || You can override the default "Leave a comment" message
+|-
+| path      || You can have multiple comment blocks on the same page.
+|-
+| permalink || Permanent link
+|-
+| paginate  || You can break long lists of comments into multiple pages
+|-
+| backwards || You can use the backwards="yes" attribute to make the comments on a page appear in reverse chronological order
+|-
+| style     || You can completely change the comment entry design by using templates
+|}
+
+<!--{{
+== Example ==
+[[{{FULLPAGENAMEE}}/Tests]]
+}}-->
+
+== Dependancy ==
+* [[Extension:StubManager|StubManager extension version >= 1.2.0 ]]
+{{Pear|JSKitComments}}
+
+== History ==
+{|border=1
+! Release !! Notes
+|-
+| 1.0.0 || Initial Release
+|-
+|}

@@ -1,0 +1,5 @@
+hg clone https://bitbucket.org/diacritice/i18n.ro
+hg clone https://bitbucket.org/diacritice/submit-word
+hg clone https://bitbucket.org/diacritice/romanizator
+hg clone https://bitbucket.org/diacritice/glosar
+

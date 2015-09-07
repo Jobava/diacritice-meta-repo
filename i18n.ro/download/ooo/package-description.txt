@@ -1,0 +1,6 @@
+﻿Română Standard - folosește diacriticele corecte (cu virgulă) și ortogratia curentă.
+
+Dacă nu vedeți corect caracterele diacriticele probabil că folosiți Windowx XP.
+Detalii pentru soluționarea problemei: http://i18n.ro/Windows_XP
+
+Dicționarele folosite sunt sub licență multiplă LGPL/GPL/MPL și provin din proiectul rospell.

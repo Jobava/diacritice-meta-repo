@@ -1,0 +1,136 @@
+NEWEST PAGES BLOG EXTENSION
+
+	Version 1.0
+	© 2006 Benjamin Bradley
+
+This is free software licensed under the GNU General Public Licence. Please
+see http://www.gnu.org/copyleft/gpl.html for further details, including the
+full text and terms of the licence.
+
+== Overview ==
+
+1. Introduction
+2. Installing the extension
+3. Accessing the special page
+4. Including the special page
+5. Customising the interface text
+6. Change log
+
+
+== 1. Introduction ==
+
+The Newest Pages Blog extension adds an includable special page to MediaWiki
+which shows the most recently created or updated pages on the wiki, in weblog 
+format. The format of the entries can be customized, and several query filtering
+options are available. The blog entries can be accessed as a regular special 
+page, included within other pages as a form of dynamic list, or accessed as an
+RSS/Atom feed.
+
+
+== 2. Installing the extension ==
+
+To install the Newest Pages Blog extension, first upload/copy the extension 
+files NewestPagesBlog.php and NewestPagesBlog.i18n.php into your MediaWiki 
+extensions directory. Then edit your LocalSettings.php file and add the 
+following line:
+
+	require_once( 'extensions/NewestPagesBlog.php' );
+
+Save the file to complete the installation.
+
+
+== 3. Accessing the special page ==
+
+To access the special page in the regular view mode, go to Special:Newestpagesblog
+on your wiki, or select it from the list of special pages.
+
+The page has a default and maximum limit of 50 items, which can be customised 
+using the supplied limit links, or with the 'limit' parameter in the page URL.
+
+To add customized parameters, use the following syntax:
+
+	...Special:NewestPagesBlog/parameter1=value1/parameter2=value2/etc
+
+Parameters can include any combination of:
+	limit=[number of pages to show]
+		defaults to 50, the maximum value (to reduce strain on the database)
+
+	namespace=[namespace of pages to show]
+		default to all, use - for main namespace
+
+	order=updated|new
+		default to new, determines the order in which pages are pulled
+
+	author=[user]
+		default to all, pull only creations/updates by the given user
+
+	format=blog|atom|rss
+		default to blog, choose atom or rss for feed output
+
+For example:
+	http://...NewestPagesBlog/limit=20/namespace=Talk/order=updated
+	- would show the 20 most recently updated pages in the "Talk" namespace
+	
+	http://...NewestPagesBlog/limit=10/namespace=-/user=Benjamin
+	- would show the 10 pages created most recently by the user Benjamin in the 
+	main namespace
+	
+
+== 4. Including the special page ==
+
+To include the special page into another page, add the following wiki markup
+to that page:
+
+	{{Special:NewestPagesBlog}}
+
+This will be replaced with the blog entries when the containing page is 
+rendered. To add customized parameters, use the following syntax:
+
+	{{Special:NewestPagesBlog/parameter1=value1/parameter2=value2/etc}}
+
+For example: 
+	{{Special:NewestPagesBlog/namespace=User}}
+	
+would show the newest pages in the user namespace. Use - to select the main
+namespace. To select a namespace AND set a limit, use syntax similar to the
+following:
+
+	{{Special:NewestPagesBlog/namespace=User/limit=5}}
+	{{Special:NewestPagesBlog/limit=5/namespace=User}}
+
+		
+== 5. Customising the interface text ==
+
+The interface text and message formats used in the Newest Pages Blog extension 
+are customisable via the MediaWiki namespace. See Special:Allmessages for a list 
+of customisable interface messages in the wiki. In addition to the messages used 
+by the NewestPages extension, the NewestPagesBlog extension adds the following:
+
+	newestpagesblog-dateformat - customizable date format - uses php's 
+			date() format - see http://us2.php.net/date
+
+	newestpagesblog-entryformat - format of entry. can include special values:
+			$1 - date, formatted according to above
+			$2 - title of the page
+			$3 - category list
+			$4 - entry, brief format
+			$5 - user who posted
+			$6 - "created" or "updated" depending on if order is new or updated
+
+	newestpagesblog-entryheader - shown before the entry list
+
+	newestpagesblog-entryfooter - shown after the entry list
+
+	newestpagesblog-summaryendmarker - the text which marks the end of the 
+			summary/description at the top of the page. Defaults to "----" which
+			means that all text before the first horizontal line in the page 
+			will be used as the "description" for that page.
+
+
+== 6. Change log ==
+
+2006-06-14
+Version 1.0
+	* Initial release
+
+Feedback welcomed at <bgcb11@gmail.com>.

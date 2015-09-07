@@ -1,0 +1,100 @@
+{{extension
+|name   = HNP
+|image  =
+|type   =		user rights
+|hook1  =		userCan
+|status =		stable
+|mediawiki =	1.11
+|version =		1.1.1
+|update = 
+|download = 
+|changelog = See [http://mediawiki.googlecode.com/svn/trunk/extensions/HNP/ SVN]
+|description = Provides an hierarchical namespace permissions system (aka "prefixes") to Mediawiki without changes to the base installation nor creation of new database tables.
+|author = [[user:jldupont|Jean-Lou Dupont]]
+}}
+== Features ==
+* Permission management through simple edition of a page
+** <code>MediaWiki:Registry/HNP</code>
+* Sysop has always all rights regardless of state of registry page
+** Enables easier 'human error' management
+* Prefix based namespace access with wildcards
+** E.g. 'sysop group has access to all namespaces'
+* Namespace dependant & Namespace Independant rights management
+* No additional database tables nor changes to schema
+* No mandatory patches
+** Namespace dependant rights management: no patches necessary
+** Namespace independant rights management: if wanted, requires a patch:
+*** 'includes/User.php'
+* Post-installation information always available through [[Special:Version]] page.
+* Magic Words:
+** ' #username# ' magic word can be used to substitute the current user's name in the title field
+*** Useful for implementing functionality akin to 'KeepYourHandsToYourself' whereas only the owner of a userpage can edit his own
+
+== Usage ==
+Please see example configuration page [[{{FULLPAGENAME}}/Example|Example]].
+
+== Notes ==
+* Please read about '''''[[security issues with authorization extensions]]'''''
+* Users interested in this extension might also appreciate [[Extension:BizzWiki]].
+
+{{Pear|HNP}}
+
+== User.php patch ==
+=== Original file ===
+<source lang=php>
+	function isAllowed($action='') {
+		if ( $action === '' )
+			// In the spirit of DWIM
+			return true;
+
+		return in_array( $action, $this->getRights() );
+	}
+</source>
+=== Patched file ===
+<source lang=php>
+	function isAllowed($action='', $ns = null /* addition */, $title = null /* addition */ ) 
+	{
+		if ( $action === '' )
+			// In the spirit of DWIM
+			return true;
+
+		//  PATCH begin{{
+		$result = null;
+		wfRunHooks('UserIsAllowed', array( &$this, $ns, $title, &$action, &$result ) );
+		if ( $result !== null )
+			return $result;
+		// PATCH end }}
+
+		return in_array( $action, $this->getRights() );
+	}
+</source>
+
+== MEDIAWIKI NOTES ==
+1) Only the forward slash is interpreted (when enabled) as an
+   indicator of "sub-page". Thus, only the forward slash and ~ are
+   considered here to be part of the hierarchical functionality.
+ 
+2) The allowed characters in a title are defined in "DefaultSettings.php".
+   $wgLegalTitleChars = " %!\"$&'()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF+";
+   NOTE that #{}[]| are not part of this list.
+  
+3) Special command characters for preg_match do not include the following:
+   #`'~,@
+   Those were tested with preg_quote
+
+4) Be careful not to choose namespace name identifiers too long as the 
+   standard limit in Mediawiki is 16characters long.  
+
+== History ==
+=== 1.0.1 ===
+* Removed file caching (causing more troubles than adding value)
+* Fixed debug messages as to not stop normal processing flow.
+=== 1.1.0 ===
+* Added Magic Words support
+** '#username#' magic word for implementing functionality akin to 'KeepYourHandsToYourself' 
+=== 1.1.1 ===
+* Attempt at fixing the parser functions '#hnp_r' and '#hnp_h' that do not work on some setup.
+
+[[Category:Namespace extensions]]
+[[Category:Edit extensions]]
+[[Category:View page extensions]]

@@ -1,0 +1,10 @@
+# use glob syntax.
+syntax: glob
+submit-word
+extensions.old
+glosar
+narro
+entrans
+Thumbs.db
+*/.svn/*
+images/thumb/*

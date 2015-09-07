@@ -1,0 +1,65 @@
+== Group Rights ==
+{| border = 1
+! Group !! Namespace !! Title !! Right !! Notes
+|-
+{{#hnp: sysop      | ~ | ~ | ~    }}
+{{#hnp: sysop      | ~ | ~ | !bot }}
+
+{{#hnp: steward    | ~ | ~ | makesysop }}
+{{#hnp: steward    | ~ | ~ | userrights }}
+
+{{#hnp: bureaucrat | ~ | ~ | makesysop }}
+{{#hnp: bureaucrat | ~ | ~ | desysop }}
+
+{{#hnp: * | ~             | ~ | createaccount                 }}
+{{#hnp: * | Main          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Talk          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Special       | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Project       | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Project_talk  | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Category      | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Category_talk | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Help          | ~ | read, browse, raw, viewsource }}
+{{#hnp: * | Help_talk     | ~ | read, browse, raw, viewsource }}
+
+{{#hnp: * | MediaWiki     | Common.css   | read }} 
+{{#hnp: * | MediaWiki     | Common.css   | raw  }} 
+{{#hnp: * | MediaWiki     | Monobook.css | read }} 
+{{#hnp: * | MediaWiki     | Monobook.css | raw  }} 
+
+{{#hnp: * | Filesystem    | LocalSettings.php | !read, !raw, !viewsource }} 
+{{#hnp: * | Filesystem    | AdminSettings.php | !read, !raw, !viewsource }} 
+
+<!-- BizzWiki related {{ -->
+{{#hnp: * | Main          | ~ | browse,search  }} 
+{{#hnp: * | Talk          | ~ | browse,search  }} 
+{{#hnp: * | Special       | ~ | browse,search  }} 
+{{#hnp: * | Project       | ~ | browse,search  }} 
+{{#hnp: * | Project_talk  | ~ | browse,search  }} 
+{{#hnp: * | Category      | ~ | browse,search  }} 
+{{#hnp: * | Category_talk | ~ | browse,search  }} 
+{{#hnp: * | Help          | ~ | browse,search  }} 
+{{#hnp: * | Help_talk     | ~ | browse,search  }} 
+{{#hnp: * | Special       | Log/~         | !browse, !read, !raw, !viewsource, !search }}
+{{#hnp: * | User          | ~.metadata    | !read, !browse, !search, !raw, !viewsource, !edit, !create  }} 
+{{#hnp: * | ~             | ~.meta        | !read, !browse, !search, !raw, !viewsource, !edit, !create  }} 
+<!-- }} -->
+
+<!-- user related -->
+<!-- users get more rights -->
+{{#hnp: user | Talk          | ~ | edit, create, createpage }} 
+{{#hnp: user | Project_talk  | ~ | edit, create, createpage }} 
+{{#hnp: user | Category_talk | ~ | edit, create, createpage }} 
+{{#hnp: user | Help_talk     | ~ | edit, create, createpage }} 
+{{#hnp: user | Image_talk    | ~ | edit, create, createpage }} 
+{{#hnp: user | User_talk     | ~ | edit, create, createpage }} 
+
+{{#hnp: user | Template      | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | Template_talk | ~ | read, browse, search, watch, unwatch }}
+{{#hnp: user | Image         | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | Image_talk    | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | User          | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | User_talk     | ~ | read, browse, search, watch, unwatch }} 
+{{#hnp: user | User          | ~.metadata | !read, !browse, !search, !raw, !viewsource, !edit, !create  }} 
+{{#hnp: user | ~             | ~.meta     | !read, !browse, !search, !raw, !viewsource, !edit, !create  }} 
+|}

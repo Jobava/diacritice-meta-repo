@@ -1,0 +1,19 @@
+.wp-poll {
+ background-color: #F8F8F8;
+ border:1px dotted #AAAAAA;
+
+}
+
+.wp-poll TABLE{
+ background-color: #F8F8F8 !important;
+}
+
+.wp-poll-width {
+ width: 20em;
+ padding-right: 1em;
+ padding-left: 1em;
+}
+
+.wp-poll-voters {
+text-transform: lowercase; /* force text to lowercase */
+}
